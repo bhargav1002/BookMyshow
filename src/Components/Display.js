@@ -10,7 +10,6 @@ export default function Display() {
     const [actordata, setActordata] = useState([]);
     const [filteredmovies, setFilteredmovies] = useState([]);
     const [directorname, setdirectorname] = useState('');
-    const [mname, setmname] = useState('');
 
     useEffect(()=>
     {
@@ -34,7 +33,6 @@ export default function Display() {
     {
         setFilteredmovies([]);
         setdirectorname("");
-        setmname('');
         if (e.target.value !== "please select")
         {
             setdirectorname(e.target.value);
@@ -49,7 +47,6 @@ export default function Display() {
         }
         else{
             setdirectorname("");
-            setmname('');
         }
     }
 
@@ -57,10 +54,8 @@ export default function Display() {
     {
         setFilteredmovies([]);
         setdirectorname("");
-        setmname('');
         if (e.target.value !== "please select")
         {
-            setmname(e.target.value);
             for(let obj of moviedata)
             {
                 if(obj["MovieName"] === e.target.value)
@@ -72,7 +67,6 @@ export default function Display() {
         }
         else{
             setdirectorname("");
-            setmname('');
         }
     }
 
@@ -80,10 +74,8 @@ export default function Display() {
     {
         setFilteredmovies([]);
         setdirectorname("");
-        setmname('');
         if (e.target.value !== "please select")
         {
-            setmname(e.target.value);
             for(let obj of moviedata)
             {
                 if(obj["Details"].ActorsNames.includes(e.target.value))
@@ -94,7 +86,6 @@ export default function Display() {
         }
         else{
             setdirectorname("");
-            setmname('');
         }
     }
 

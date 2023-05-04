@@ -11,18 +11,18 @@ export default function Displaymovie(props) {
 
     useEffect(()=>
     {
-        props.filteredmovies.map((obj) =>
+        setGreenflag(false);
+        for(let obj of props.filteredmovies)
         {
             if (obj["MovieName"] === props.data)
             {
                 if(obj["Details"].ActorsNames.includes(obj["Details"].DirectorName))
                 {
-                    console.log("Hello",obj);
                     setGreenflag(true);
                 }
             }
-        })
-    },[])
+        }
+    },[props.data,props.filteredmovies])
 
   return (
     <div>

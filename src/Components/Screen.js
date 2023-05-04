@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import Displaymovie from './Displaymovie';
 
 export default function Screen(props) {
