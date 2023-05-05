@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Displaymovie(props) {
 
@@ -26,7 +27,7 @@ export default function Displaymovie(props) {
 
   return (
     <div>
-      <div className='bg-blue-300 p-5 border' style={{color:greenflag ? 'green' : 'black'}} onClick={clickHandler}>{props.data}</div>
+      <Link to={`/movie/${props.id}`}><div className='bg-blue-300 p-5 border' style={{ color: greenflag ? 'green' : 'black' }} onClick={clickHandler}>{props.data}</div></Link>
     </div>
   )
 }
