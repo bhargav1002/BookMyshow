@@ -98,31 +98,37 @@ export default function Display() {
 
   return (
     <>
-        <div>
-        <select onChange={directorHandler}>
-            <option value="please select">Please select data</option>
-            <option value="All">All</option>
-            {directors.map((obj)=>
-            {
-                return(<option key={obj} value={obj}>{obj}</option>)
-            })}
-        </select>
-        <select onChange={movieHandler}>
-        <option value="please select">Please select data</option>
-        <option value="All">All</option>
-            {moviename.map((obj)=>
-            {
-                return(<option key={obj.MovieID} value={obj.MovieName}>{obj.MovieName}</option>)
-            })}
-        </select>
-        <select onChange={actorHandler}>
-        <option value="please select">Please select data</option>
-        <option value="All">All</option>
-            {actordata.map((obj,i)=>
-            {
-                return(<option key={i} value={obj}>{obj}</option>)
-            })}
-        </select>
+        <div className="flex justify-center flex-col md:flex-row">
+              <div className="mx-5">
+            <p className="font-bold">Filter by Director</p>
+                  <select onChange={directorHandler}>
+                      <option value="please select">Please select data</option>
+                      <option value="All">All</option>
+                      {directors.map((obj) => {
+                          return (<option key={obj} value={obj}>{obj}</option>)
+                      })}
+                  </select>
+        </div>
+              <div className="mx-5">
+                  <p className="font-bold">Filter by Movie</p>
+                  <select onChange={movieHandler}>
+                      <option value="please select">Please select data</option>
+                      <option value="All">All</option>
+                      {moviename.map((obj) => {
+                          return (<option key={obj.MovieID} value={obj.MovieName}>{obj.MovieName}</option>)
+                      })}
+                  </select>
+        </div>
+              <div className="mx-5">
+                  <p className="font-bold">Filter by Actor</p>
+                  <select onChange={actorHandler}>
+                      <option value="please select">Please select data</option>
+                      <option value="All">All</option>
+                      {actordata.map((obj, i) => {
+                          return (<option key={i} value={obj}>{obj}</option>)
+                      })}
+                  </select>
+        </div>
     </div>
     <div>
               <Screen filteredmovies={filteredmovies} directorname={directorname} setdirectorname={setdirectorname}></Screen>

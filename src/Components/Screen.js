@@ -1,17 +1,29 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import Displaymovie from './Displaymovie';
+import DisplayActor from './DisplayActor';
+import axios from 'axios';
 
 export default function Screen(props) {
 
     const [displaymoviename, setDisplaymoviename] = useState('');
+    const [actordetails, setActordetails] = useState([]);
 
     const directornameHnadler = (name) =>
     {
         props.setdirectorname(name);
     }
 
+    useEffect(() =>
+    {
+        const f = async () => {
+            const response = await axios.get('ActorDetail.json');
+            setActordetails(response.data);
+        }
+        f()
+    },[]);
+
   return (
-    <div>
+    <div className='container mx-auto'>
         {console.log(props.filteredmovies)}
         <h1 className='font-bold text-2xl '>Screen</h1>
         <div>
@@ -41,7 +53,7 @@ export default function Screen(props) {
                     {
                         return(obj["MovieName"] === displaymoviename && (<div className='text-xl'>{obj["Details"].ActorsNames.map((ob) =>
                         {
-                            return(<div>{ob}</div>)
+                            return (<DisplayActor data={ob} actordetails={actordetails}></DisplayActor>)
                         })}</div>))
                     })}
                 </div>
