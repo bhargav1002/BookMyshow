@@ -26,7 +26,7 @@ export default function Screen(props) {
                         return (<Displaymovie data={obj["MovieName"]} id={obj["MovieID"]} filteredmovies={props.filteredmovies} setDisplaymoviename={setDisplaymoviename} directornameHnadler={directornameHnadler}></Displaymovie>)
                     })}
                 </div>
-                <div className='w-3/5 bg-blue-300'>
+                <div className='w-3/5 bg-blue-300' style={{height:"645px"}}>
                     { props.filteredmovies.map((obj) =>
                     {
                         return(obj["MovieName"] === displaymoviename && (<video controls className='w-full'>
