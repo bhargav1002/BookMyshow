@@ -27,13 +27,17 @@ export default function Display() {
         }   
         f()
         f1()
-    },[])
+    },[]);
+
+    useEffect(() =>
+    {
+        setFilteredmovies(moviedata);
+    }, [moviedata]);
 
     const directorHandler = (e) =>
     {
         setFilteredmovies([]);
-        setdirectorname("");
-        if (e.target.value !== "please select")
+        if (e.target.value !== "please select" && e.target.value !== 'All')
         {
             setdirectorname(e.target.value);
             for(let obj of moviedata)
@@ -46,6 +50,7 @@ export default function Display() {
             }
         }
         else{
+            setFilteredmovies(moviedata);
             setdirectorname("");
         }
     }
@@ -53,8 +58,7 @@ export default function Display() {
     const movieHandler = (e)=>
     {
         setFilteredmovies([]);
-        setdirectorname("");
-        if (e.target.value !== "please select")
+        if (e.target.value !== "please select" && e.target.value !== 'All')
         {
             for(let obj of moviedata)
             {
@@ -66,6 +70,7 @@ export default function Display() {
             }
         }
         else{
+            setFilteredmovies(moviedata);
             setdirectorname("");
         }
     }
@@ -73,8 +78,7 @@ export default function Display() {
     const actorHandler = (e) =>
     {
         setFilteredmovies([]);
-        setdirectorname("");
-        if (e.target.value !== "please select")
+        if (e.target.value !== "please select" && e.target.value !== 'All')
         {
             for(let obj of moviedata)
             {
@@ -85,6 +89,7 @@ export default function Display() {
             }
         }
         else{
+            setFilteredmovies(moviedata);
             setdirectorname("");
         }
     }
@@ -95,6 +100,7 @@ export default function Display() {
         <div>
         <select onChange={directorHandler}>
             <option value="please select">Please select data</option>
+            <option value="All">All</option>
             {directors.map((obj)=>
             {
                 return(<option key={obj} value={obj}>{obj}</option>)
@@ -102,6 +108,7 @@ export default function Display() {
         </select>
         <select onChange={movieHandler}>
         <option value="please select">Please select data</option>
+        <option value="All">All</option>
             {moviename.map((obj)=>
             {
                 return(<option key={obj.MovieID} value={obj.MovieName}>{obj.MovieName}</option>)
@@ -109,6 +116,7 @@ export default function Display() {
         </select>
         <select onChange={actorHandler}>
         <option value="please select">Please select data</option>
+        <option value="All">All</option>
             {actordata.map((obj,i)=>
             {
                 return(<option key={i} value={obj}>{obj}</option>)
@@ -116,7 +124,7 @@ export default function Display() {
         </select>
     </div>
     <div>
-        <Screen filteredmovies={filteredmovies} directorname={directorname} ></Screen>
+              <Screen filteredmovies={filteredmovies} directorname={directorname} setdirectorname={setdirectorname}></Screen>
     </div>
     </>
   );

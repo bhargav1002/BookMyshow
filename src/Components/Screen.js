@@ -5,6 +5,10 @@ export default function Screen(props) {
 
     const [displaymoviename, setDisplaymoviename] = useState('');
 
+    const directornameHnadler = (name) =>
+    {
+        props.setdirectorname(name);
+    }
 
   return (
     <div>
@@ -19,7 +23,7 @@ export default function Screen(props) {
                 <h1 className='font-bold text-2xl bg-blue-300'>Movies Name</h1>
                     {props.filteredmovies.map((obj) =>
                     {
-                        return (<Displaymovie data={obj["MovieName"]} id={obj["MovieID"]} filteredmovies={props.filteredmovies} setDisplaymoviename={setDisplaymoviename}></Displaymovie>)
+                        return (<Displaymovie data={obj["MovieName"]} id={obj["MovieID"]} filteredmovies={props.filteredmovies} setDisplaymoviename={setDisplaymoviename} directornameHnadler={directornameHnadler}></Displaymovie>)
                     })}
                 </div>
                 <div className='w-3/5 bg-blue-300'>
