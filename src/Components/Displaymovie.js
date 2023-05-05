@@ -34,7 +34,7 @@ export default function Displaymovie(props) {
 
   return (
     <div>
-      <Link to={`/movie/${props.id}`}><div className='bg-blue-300 p-5 border' style={{ backgroundColor: greenflag && 'green' }} onClick={clickHandler}>{props.data}</div></Link>
+      <Link to={`/movie/${props.id}`}><div className='bg-blue-300 p-5 border' style={{ color: greenflag ? 'green': 'black' }} onClick={clickHandler}>{props.data}</div></Link>
     </div>
   )
 }
