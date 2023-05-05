@@ -22,7 +22,7 @@ export default function Screen(props) {
                         return(<Displaymovie data={obj["MovieName"]} filteredmovies={props.filteredmovies} setDisplaymoviename={setDisplaymoviename}></Displaymovie>)
                     })}
                 </div>
-                <div className='w-3/5 bg-green-300'>
+                <div className='w-3/5 bg-blue-300'>
                     { props.filteredmovies.map((obj) =>
                     {
                         return(obj["MovieName"] === displaymoviename && (<video controls className='w-full'>
