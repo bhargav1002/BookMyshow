@@ -17,7 +17,7 @@ export default function DisplayActor(props) {
 
   return (
     <div>
-          <a href={actorlink} target="_blank" rel="noreferrer"><div onClick={clickHandler}>{props.data}</div></a>
+      <a href={actorlink} target="_blank" rel="noreferrer"><div onClick={clickHandler} className='bg-blue-300 p-5 border'>{props.data}</div></a>
     </div>
   )
 }
