@@ -78,6 +78,7 @@ export default function Display() {
     const actorHandler = (e) =>
     {
         setFilteredmovies([]);
+        setdirectorname("");
         if (e.target.value !== "please select" && e.target.value !== 'All')
         {
             for(let obj of moviedata)
